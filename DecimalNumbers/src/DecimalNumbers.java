@@ -7,6 +7,7 @@ public class DecimalNumbers {
 
 	public static void main(String[] args) {
 		
+		System.out.println("This program checks to see if your input is a valid decimal number. \nEnter a string... \n");     // Ask the user for a string.
 		UserInput();
 
 	}
@@ -14,8 +15,6 @@ public class DecimalNumbers {
 	static String UserInput() {
 		
 		String inputString;
-		
-		System.out.println("This program checks to see if your input is a valid decimal number. \nEnter a string... \n");     // Ask the user for a string.
 		
 		in = new Scanner(System.in);
 		inputString = in.next();                   // Place the input string into the object variable.
@@ -28,29 +27,14 @@ public class DecimalNumbers {
 	
 	static String CheckIfDecimal(String inputString) {
 		
-		String outNotDecimal = "The value you entered is not decimal. Try again...";
-		String output = "The value you entered is decimal. Enter another String";		
-		
-		String[] stringArray = inputString.split("(?!^)");
-		
+		String outNotDecimal = "NOT DECIMAL. Try again...";
+		String output = "DECIMAL. Enter another String";		
+		String[] stringArray = inputString.split("(?!^)");    // Creates an array of characters out of input string.
 		for(String character : stringArray) {
-			
-			isDecimal(character);
+			if(!(character.matches("^([+-]?\\d*\\.?\\d*)$"))) {
+				output = outNotDecimal;
+			}
 		}
-		return output;
-		
+		return output;	
 	}
-	
-	static boolean isDecimal(String str) {  
-	  try  
-	  {  
-	    double d = Double.parseDouble(str);  
-	  }  
-	  catch(NumberFormatException nfe)  
-	  {  
-	    return false;  
-	  }  
-	  return true;  
-	}
-
 }
