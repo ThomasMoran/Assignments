@@ -1,4 +1,5 @@
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class DecimalNumbers {
@@ -7,12 +8,12 @@ public class DecimalNumbers {
 
 	public static void main(String[] args) {
 		
-		System.out.println("This program checks to see if your input is a valid decimal number. \nEnter a string... \n");     // Ask the user for a string.
+		System.out.println("This program checks to see if your input is a valid decimal number. \nEnter a string... \n");  // Intro.
 		UserInput();
 
 	}
 	
-	static String UserInput() {
+	static void UserInput() {
 		
 		String inputString;
 		
@@ -22,19 +23,27 @@ public class DecimalNumbers {
 		System.out.println(CheckIfDecimal(inputString));
 		UserInput();
 		
-		return null;
+		return;
 	}
 	
 	static String CheckIfDecimal(String inputString) {
 		
 		String outNotDecimal = "NOT DECIMAL. Try again...";
-		String output = "DECIMAL. Enter another String";		
-		String[] stringArray = inputString.split("(?!^)");    // Creates an array of characters out of input string.
-		for(String character : stringArray) {
-			if(!(character.matches("^([+-]?\\d*\\.?\\d*)$"))) {
-				output = outNotDecimal;
-			}
+		String output = "DECIMAL. Try agan...";	
+		String[] str = {};
+		int length = inputString.length();
+		str = inputString.split("");
+		
+		for(String s : str) {
+			System.out.println(s);
 		}
+		
+//		for(int i=0; i<length; i++) {                        // Creating array of characters from input string.
+//			str[i] = inputString(i);
+//		}
+		
+		
+		
 		return output;	
 	}
 }
